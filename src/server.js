@@ -28,15 +28,6 @@ app.get("/health", (req, res) => {
   res.status(200).json({ msg: "api is up and running" });
 });
 
-app.get("/debug", (req, res) => {
-  const allowedOrigin = ENV.CLIENT_URL?.replace(/[\r\n\s]/g, "").replace(/\/$/, "");
-  res.status(200).json({
-    allowedOrigin,
-    clientUrlRaw: ENV.CLIENT_URL,
-    receivedOrigin: req.headers.origin
-  });
-});
-
 // Backend is now purely an API in split deployment
 
 const startServer = async () => {
